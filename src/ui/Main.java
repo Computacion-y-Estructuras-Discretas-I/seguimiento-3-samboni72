@@ -2,6 +2,7 @@ package ui;
 
 import java.util.Scanner;
 import structures.PilaGenerica;
+import structures.TablasHash;
 
 public class Main {
 
@@ -78,9 +79,7 @@ public class Main {
                 }
 
                 char tope = pila.Pop();
-                if ((c == ')'&& tope != '(') ||
-                    (c == ']' && tope != '[') ||
-                    (c == '}'&& tope != '{')) {
+                if ((c == ')'&& tope != '(') || (c == ']' && tope != '[') || (c == '}'&& tope != '{')){
                     return false; 
                 }
             }
@@ -93,8 +92,10 @@ public class Main {
      * Encuentra y muestra todos los pares unicos de numeros que sumen objetivo usando TablasHash.
      * @param numeros arreglo de numeros enteros
      * @param objetivo suma objetivo
+     * @throws Exception 
      */
-    public void encontrarParesConSuma(int[] numeros, int objetivo) {
+    public void encontrarParesConSuma(int[] numeros, int objetivo) throws Exception {
+        TablasHash tabla = new TablasHash(numeros.length);
         
     }
 
