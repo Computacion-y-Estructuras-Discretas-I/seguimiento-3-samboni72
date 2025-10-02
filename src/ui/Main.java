@@ -99,7 +99,11 @@ public class Main {
         TablasHash tabla1 = new TablasHash(numeros.length);
         for (int i = 0 ; i < numeros.length ; i++){
             int varInt = numeros[i];
-            tabla1.insert(varInt, varInt);
+            try {
+                tabla1.insert(varInt, varInt);
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
             
         }
 
