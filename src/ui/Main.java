@@ -2,7 +2,6 @@ package ui;
 
 import java.util.Scanner;
 import structures.PilaGenerica;
-import structures.TablasHash;
 
 public class Main {
 
@@ -63,9 +62,31 @@ public class Main {
      * @param s expresion a verificar
      * @return true si esta balanceada, false si no
      */
+    //' 
     public boolean verificarBalanceo(String s) {
-        // TODO: completar 
-        return false;
+        if (s == null || s.isEmpty()) {  
+            return true;
+        } 
+        PilaGenerica<Character> pila = new PilaGenerica<>(s.length());
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i); 
+            if (c== '(' || c== '[' || c== '{' ){
+                pila.Push(c);
+            } else if (c== ')' || c== ']' || c== '}' ){
+                if (pila.getTop() == 0) {
+                    return false; 
+                }
+
+                char tope = pila.Pop();
+                if ((c == ')'&& tope != '(') ||
+                    (c == ']' && tope != '[') ||
+                    (c == '}'&& tope != '{')) {
+                    return false; 
+                }
+            }
+        }
+
+        return pila.getTop() == 0;
     }
 
     /**
@@ -74,8 +95,9 @@ public class Main {
      * @param objetivo suma objetivo
      */
     public void encontrarParesConSuma(int[] numeros, int objetivo) {
-        // TODO: completar
+        
     }
+
 
     public static void main(String[] args) throws Exception {
         Main app = new Main();
