@@ -109,7 +109,13 @@ public class Main {
 
         for (int each : numeros) {
             int complemento = objetivo - each;  
-            if (tabla1.search(complemento, complemento) && complemento != each) {
+            boolean flag = false;
+            try {
+                flag = tabla1.search(complemento, complemento);
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+            if (flag && complemento != each) {
 
                 if (complemento < each) {
                     System.out.println("(" + complemento + ", " + each + ")");
