@@ -2,6 +2,7 @@ package ui;
 
 import java.util.Scanner;
 import structures.PilaGenerica;
+import structures.TablasHash;
 
 public class Main {
 
@@ -93,19 +94,29 @@ public class Main {
      * @param objetivo suma objetivo
      * @throws Exception 
      */
-    //profe puse el e
-    public void encontrarParesConSuma(int[] numeros, int objetivo) {
-        for (int i = 0; i < numeros.length; i++) { 
-            for (int j = i + 1; j < numeros.length; j++) { 
-
-                if (numeros[i] + numeros[j] == objetivo) {
-                    System.out.println("(" + numeros[i] + ", " + numeros[j] + ")");
-                }
-
-            }
+    //profe puse el exception ya que la clase de tablas todos los metodos usan el exception 
+    public void encontrarParesConSuma(int[] numeros, int objetivo) throws Exception {
+        TablasHash tabla1 = new TablasHash(numeros.length);
+        for (int i = 0 ; i < numeros.length ; i++){
+            int varInt = numeros[i];
+            tabla1.insert(varInt, varInt);
+            
         }
 
+        for (int each : numeros) {
+            int complemento = objetivo - each;  
+            if (tabla1.search(complemento, complemento) && complemento != each) {
+
+                if (complemento < each) {
+                    System.out.println("(" + complemento + ", " + each + ")");
+                } else {
+                    System.out.println("(" + each + ", " + complemento + ")");
+                }
+            }
+            
+        }
     }
+
 
 
 
