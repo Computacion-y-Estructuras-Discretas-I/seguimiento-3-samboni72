@@ -2,7 +2,6 @@ package ui;
 
 import java.util.Scanner;
 import structures.PilaGenerica;
-import structures.TablasHash;
 
 public class Main {
 
@@ -14,7 +13,7 @@ public class Main {
 
     public void ejecutar() throws Exception {
         while (true) {
-            System.out.println("\nSeleccione la opcion:");
+            System.out.println("\nSelecc2ione la opcion:");
             System.out.println("1. Punto 1, Verificar balanceo de expresión");
             System.out.println("2. Punto 2, Encontrar pares con suma objetivo");
             System.out.println("3. Salir del programa");
@@ -94,10 +93,21 @@ public class Main {
      * @param objetivo suma objetivo
      * @throws Exception 
      */
-    public void encontrarParesConSuma(int[] numeros, int objetivo) throws Exception {
-        TablasHash tabla = new TablasHash(numeros.length);
-        
+    //profe puse el e
+    public void encontrarParesConSuma(int[] numeros, int objetivo) {
+        for (int i = 0; i < numeros.length; i++) { 
+            for (int j = i + 1; j < numeros.length; j++) { 
+
+                if (numeros[i] + numeros[j] == objetivo) {
+                    System.out.println("(" + numeros[i] + ", " + numeros[j] + ")");
+                }
+
+            }
+        }
+
     }
+
+
 
 
     public static void main(String[] args) throws Exception {
